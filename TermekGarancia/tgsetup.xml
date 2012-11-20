@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Felhasználós xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="tgsetup.xsd">
+  <Azonosítós>88888888</Azonosítós>
+  <Piramis_törzsszáms>666666</Piramis_törzsszáms>
+  <Teszt_bejelentkezéss>0</Teszt_bejelentkezéss>
+</Felhasználós>

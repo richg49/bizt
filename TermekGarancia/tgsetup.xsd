@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Felhasználós" type="adat_Felhasználós"></xs:element>
+
+	<xs:complexType name="adat_Felhasználós">
+		<xs:sequence>
+			<xs:element name="Azonosítós" type="típus_Kötelezős"/>
+			<xs:element name="Piramis_törzsszáms" type="típus_Törzsszáms" />
+			<xs:element name="Teszt_bejelentkezéss" type="típus_IgenNems" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="típus_Törzsszáms">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d+"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="típus_IgenNems">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"></xs:enumeration>
+			<xs:enumeration value="1"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="típus_Kötelezős">
+		<xs:restriction base="xs:string">
+			<xs:whiteSpace value="collapse" />
+			<xs:minLength value="1" />
+			<xs:maxLength value="100" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Biztosítás">
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="Termékgarancia">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Felhasználó" type="adat_Felhasználó"></xs:element>
+							<xs:element name="Szerződés" type="adat_Szerződés"></xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Eredmény" type="adat_Eredmény"></xs:element>
+				<xs:element name="Hiba" type="xs:string"></xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="adat_Felhasználó">
+		<xs:sequence>
+			<xs:element name="Azonosító" type="típus_Kötelező"/>
+			<xs:element name="Piramis_törzsszám" type="típus_Törzsszám" />
+			<xs:element name="Teszt_bejelentkezés" type="típus_IgenNem" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="adat_Szerződés">
+		<xs:sequence>
+			<xs:element name="Törlendő" type="típus_IgenNem" />
+			<xs:element name="Számla_sorszáma" type="típus_Kötelező" />
+			<xs:element name="Vásárlás_dátuma" type="xs:date" />
+			<xs:element name="Vásárló">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Név" type="típus_Kötelező"></xs:element>
+						<xs:element name="Lakcím" type="blokk_Cím"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Vagyontárgy">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Cikk_kód" type="típus_Kötelező"></xs:element>
+						<xs:element name="Kategória" type="típus_Kötelező"></xs:element>
+						<xs:element name="Márka" type="típus_Kötelező"></xs:element>
+						<xs:element name="Típus" type="típus_Kötelező"></xs:element>
+						<xs:element name="Gyártói_garancia_hossza" type="típus_Tartam"></xs:element>
+						<xs:element name="Nagykereskedelmi_ár" type="típus_Ft"></xs:element>
+						<xs:element name="Fogyasztói_ár" type="típus_Ft"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Biztosítás">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Teljes_tartam" type="típus_Tartam"></xs:element>
+						<xs:element name="Biztosítási_díj" type="típus_Ft"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Áruház">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Kód" type="típus_Kötelező"></xs:element>
+						<xs:element name="Név" type="típus_Kötelező"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="adat_Eredmény">
+		<xs:sequence>
+			<xs:element name="Ajánlatszám" type="típus_Kötelező"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="blokk_Cím">
+		<xs:sequence>
+			<xs:element name="Irányítószám" type="típus_NemKötelező" />
+			<xs:element name="Település" type="típus_Kötelező" />
+			<xs:element name="Utca_házszám_emelet_ajtó" type="típus_Kötelező" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="típus_Törzsszám">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d+"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="típus_IgenNem">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"></xs:enumeration>
+			<xs:enumeration value="1"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="típus_Kötelező">
+		<xs:restriction base="xs:string">
+			<xs:whiteSpace value="collapse" />
+			<xs:minLength value="1" />
+			<xs:maxLength value="100" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="típus_NemKötelező">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0" />
+			<xs:maxLength value="100" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="típus_Tartam">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1" />
+			<xs:maxInclusive value="5" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="típus_Ft">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="10000000" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
