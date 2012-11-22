@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.StringWriter;
-import java.net.URL;
 import java.security.cert.X509Certificate;
 
 import org.eclipse.swt.widgets.Display;
@@ -31,7 +30,6 @@ import javax.xml.bind.Marshaller;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.namespace.QName;
 
 import hu.groupama.portal.product.biztositas.AdatFelhasználó;
 import hu.groupama.portal.product.biztositas.AdatSzerződés;
@@ -83,9 +81,9 @@ public class biztositas {
 	private String piramistorzsszams;
 	private String tesztbejelentkezess;
 	private Text textAzonosito;
-	private String ws = "https://agentportal.garancia-online.hu/ProductCalculator/services/ProductWS";
-	private String tns = "http://service.product.portal.groupama.hu"; 
-	private String serviceName = "ProductWSService";
+//	private String ws = "https://agentportal.garancia-online.hu/ProductCalculator/services/ProductWS";
+//	private String tns = "http://service.product.portal.groupama.hu"; 
+//	private String serviceName = "ProductWSService";
 
 	public static void main(String[] args) {
 		try {
@@ -436,7 +434,6 @@ public class biztositas {
 		try {
 			df = DatatypeFactory.newInstance();
 		} catch (DatatypeConfigurationException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -557,16 +554,18 @@ public class biztositas {
             // Install the all-trusting host verifier
             HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
         
-	        URL u = new URL(ws);
+//	        URL u = new URL(ws);
 	        
-	        QName qn = new QName(tns, serviceName);
+//	        QName qn = new QName(tns, serviceName);
 			
-	        ProductWSService ps = new ProductWSService(u,qn);
+//	        ProductWSService ps = new ProductWSService(u,qn);
+	        ProductWSService ps = new ProductWSService();
 	        ProductWS p = ps.getProductWS();
+	        
 
 	        String valasz;
 			try {
-				valasz = p.testApplication("Laci");
+				valasz = p.testApplication("Teszt üzenet");
 		        JOptionPane.showMessageDialog(null, valasz);
 			} catch (ClientTransportException e) {
 				e.printStackTrace();
@@ -609,11 +608,12 @@ public class biztositas {
             // Install the all-trusting host verifier
             HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
         
-	        URL u = new URL(ws);
+//	        URL u = new URL(ws);
 	        
-	        QName qn = new QName(tns, serviceName);
+//	        QName qn = new QName(tns, serviceName);
 			
-	        ProductWSService ps = new ProductWSService(u,qn);
+//	        ProductWSService ps = new ProductWSService(u,qn);
+	        ProductWSService ps = new ProductWSService();
 	        ProductWS p = ps.getProductWS();
 
 	        String valasz;

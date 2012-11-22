@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p:Felhasználós xmlns:p="http://www.promarkvf.hu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.promarkvf.hu tgsetup.xsd ">
-  <Azonosítós>777777</Azonosítós>
-  <Piramis_törzsszáms>777777</Piramis_törzsszáms>
-  <Teszt_bejelentkezéss>0</Teszt_bejelentkezéss>
+  <Azonosítós>1200010846</Azonosítós>
+  <Piramis_törzsszáms>0</Piramis_törzsszáms>
+  <Teszt_bejelentkezéss>1</Teszt_bejelentkezéss>
 </p:Felhasználós>

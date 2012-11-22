@@ -2,25 +2,38 @@
 <Biztosítás>
     <Termékgarancia>
         <Felhasználó>
-            <Azonosító>88888888</Azonosító>
-            <Piramis_törzsszám>666666</Piramis_törzsszám>
+            <Azonosító>777777</Azonosító>
+            <Piramis_törzsszám>0</Piramis_törzsszám>
             <Teszt_bejelentkezés>1</Teszt_bejelentkezés>
         </Felhasználó>
         <Szerződés>
             <Törlendő>0</Törlendő>
-            <Számla_sorszáma>2</Számla_sorszáma>
-            <Vásárlás_dátuma>2012-11-16</Vásárlás_dátuma>
+            <Számla_sorszáma>1</Számla_sorszáma>
+            <Vásárlás_dátuma>2012-11-22</Vásárlás_dátuma>
             <Vásárló>
-                <Név>2</Név>
+                <Név>1</Név>
                 <Lakcím>
-                    <Irányítószám>2</Irányítószám>
-                    <Település>2</Település>
-                    <Utca_házszám_emelet_ajtó>2</Utca_házszám_emelet_ajtó>
+                    <Irányítószám>1</Irányítószám>
+                    <Település>1</Település>
+                    <Utca_házszám_emelet_ajtó>1</Utca_házszám_emelet_ajtó>
                 </Lakcím>
             </Vásárló>
+            <Vagyontárgy>
+                <Cikk_kód>1</Cikk_kód>
+                <Kategória>1</Kategória>
+                <Márka>1</Márka>
+                <Típus>1</Típus>
+                <Gyártói_garancia_hossza>1</Gyártói_garancia_hossza>
+                <Nagykereskedelmi_ár>1</Nagykereskedelmi_ár>
+                <Fogyasztói_ár>1</Fogyasztói_ár>
+            </Vagyontárgy>
+            <Biztosítás>
+                <Teljes_tartam>1</Teljes_tartam>
+                <Biztosítási_díj>1</Biztosítási_díj>
+            </Biztosítás>
             <Áruház>
-                <Kód>2</Kód>
-                <Név>2</Név>
+                <Kód>1</Kód>
+                <Név>1</Név>
             </Áruház>
         </Szerződés>
     </Termékgarancia>
