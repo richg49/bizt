@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.product.portal.groupama.hu" xmlns:impl="http://service.product.portal.groupama.hu" xmlns:intf="http://service.product.portal.groupama.hu" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <schema targetNamespace="http://service.product.portal.groupama.hu" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <element name="storeDataResponse">
+    <complexType>
+     <sequence>
+      <element name="storeDataReturn" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testApplication">
+    <complexType>
+     <sequence>
+      <element name="name" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testApplicationResponse">
+    <complexType>
+     <sequence>
+      <element name="testApplicationReturn" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="storeData">
+    <complexType>
+     <sequence>
+      <element name="xml" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  </wsdl:types>
+  <wsdl:message name="storeDataResponse">
+    <wsdl:part element="impl:storeDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="testApplicationResponse">
+    <wsdl:part element="impl:testApplicationResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="storeDataRequest">
+    <wsdl:part element="impl:storeData" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="testApplicationRequest">
+    <wsdl:part element="impl:testApplication" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ProductWS">
+    <wsdl:operation name="storeData">
+      <wsdl:input message="impl:storeDataRequest" name="storeDataRequest">
+    </wsdl:input>
+      <wsdl:output message="impl:storeDataResponse" name="storeDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testApplication">
+      <wsdl:input message="impl:testApplicationRequest" name="testApplicationRequest">
+    </wsdl:input>
+      <wsdl:output message="impl:testApplicationResponse" name="testApplicationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductWSSoapBinding" type="impl:ProductWS">
+<wsaw:UsingAddressing wsdl:required="false"/>
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="storeData">
+      <wsdlsoap:operation soapAction="storeData"/>
+      <wsdl:input name="storeDataRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="storeDataResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testApplication">
+      <wsdlsoap:operation soapAction="testApplication"/>
+      <wsdl:input name="testApplicationRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="testApplicationResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductWSService">
+    <wsdl:port binding="impl:ProductWSSoapBinding" name="ProductWS">
+      <wsdlsoap:address location="https://agentportal.garancia-online.hu/ProductCalculator/services/ProductWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:pt="http://promarkvf.hu/ProductTypes" 
+            targetNamespace="http://promarkvf.hu/ProductWS"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified">
+    <xs:import schemaLocation="ProductTypes.xsd" 
+               namespace="http://promarkvf.hu/ProductTypes"/>
+
+    <xs:complexType name="adat_Felhasználó">
+        <xs:sequence>
+            <xs:element name="Azonosító" type="pt:típus_Kötelező"/>
+            <xs:element name="Piramis_törzsszám" type="pt:típus_Törzsszám" />
+            <xs:element name="Teszt_bejelentkezés" type="pt:típus_IgenNem" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Vagyontárgy">
+        <xs:sequence>
+            <xs:element name="Cikk_kód" type="pt:típus_Kötelező"></xs:element>
+            <xs:element name="Kategória" type="pt:típus_Kötelező"></xs:element>
+            <xs:element name="Márka" type="pt:típus_Kötelező"></xs:element>
+            <xs:element name="Típus" type="pt:típus_Kötelező"></xs:element>
+            <xs:element name="Gyártói_garancia_hossza" type="pt:típus_Tartam"></xs:element>
+            <xs:element name="Nagykereskedelmi_ár" type="pt:típus_Ft"></xs:element>
+            <xs:element name="Fogyasztói_ár" type="pt:típus_Ft"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Biztosítás">
+        <xs:sequence>
+            <xs:element name="Teljes_tartam" type="pt:típus_Tartam"></xs:element>
+            <xs:element name="Biztosítási_díj" type="pt:típus_Ft"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Áruház">
+        <xs:sequence>
+            <xs:element name="Kód" type="pt:típus_Kötelező"></xs:element>
+            <xs:element name="Név" type="pt:típus_Kötelező"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+	<xs:complexType name="adat_Eredmény">
+		<xs:sequence>
+			<xs:element name="Ajánlatszám" type="pt:típus_Kötelező"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="blokk_Cím">
+		<xs:sequence>
+			<xs:element name="Irányítószám" type="pt:típus_NemKötelező" />
+			<xs:element name="Település" type="pt:típus_Kötelező" />
+			<xs:element name="Utca_házszám_emelet_ajtó" type="pt:típus_Kötelező" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

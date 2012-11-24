@@ -120,14 +120,14 @@ public class biztositas {
 		shlTermkgarancia.setLayoutDeferred(true);
 		shlTermkgarancia.setTouchEnabled(true);
 		shlTermkgarancia.setSize(625, 383);
-		shlTermkgarancia.setText("Term\u00E9kgarancia");
+		shlTermkgarancia.setText("Új termékgarancia");
 		
 		Label lblNewLabel = new Label(shlTermkgarancia, SWT.NONE);
-		lblNewLabel.setBounds(10, 83, 129, 13);
+		lblNewLabel.setBounds(10, 83, 139, 15);
 		lblNewLabel.setText("V\u00E1s\u00E1rl\u00E1si sz\u00E1mla sorsz\u00E1ma:");
 		
 		Label lblNewLabel_1 = new Label(shlTermkgarancia, SWT.NONE);
-		lblNewLabel_1.setBounds(10, 106, 83, 13);
+		lblNewLabel_1.setBounds(10, 106, 89, 15);
 		lblNewLabel_1.setText("V\u00E1s\u00E1rl\u00E1s d\u00E1tuma:");
 		
 		Label lblNewLabel_2 = new Label(shlTermkgarancia, SWT.NONE);
@@ -203,7 +203,7 @@ public class biztositas {
 		aruhaz_kod.setBounds(81, 16, 76, 19);
 		
 		Label lblNewLabel_18 = new Label(comp_aruhaz, SWT.NONE);
-		lblNewLabel_18.setBounds(10, 38, 64, 13);
+		lblNewLabel_18.setBounds(10, 38, 68, 15);
 		lblNewLabel_18.setToolTipText("a term\u00E9ket \u00E9rt\u00E9kes\u00EDt\u0151 bolt neve");
 		lblNewLabel_18.setText("Megnevez\u00E9s:");
 		
@@ -212,89 +212,91 @@ public class biztositas {
 		aruhaz_nev.setText("");
 		
 		Composite comp_vagyontargyadatai = new Composite(shlTermkgarancia, SWT.NONE);
-		comp_vagyontargyadatai.setBounds(311, 41, 296, 172);
+		comp_vagyontargyadatai.setBounds(292, 41, 315, 172);
 		
 		Label lblNewLabel_6 = new Label(comp_vagyontargyadatai, SWT.NONE);
-		lblNewLabel_6.setBounds(10, 29, 43, 13);
+		lblNewLabel_6.setBounds(10, 29, 49, 15);
 		lblNewLabel_6.setText("Cikk k\u00F3d:");
 		
 		Label lblNewLabel_7 = new Label(comp_vagyontargyadatai, SWT.NONE);
-		lblNewLabel_7.setBounds(10, 49, 50, 13);
+		lblNewLabel_7.setBounds(10, 49, 53, 15);
 		lblNewLabel_7.setText("Kateg\u00F3ria:");
 		
 		Label lblNewLabel_8 = new Label(comp_vagyontargyadatai, SWT.NONE);
-		lblNewLabel_8.setBounds(10, 69, 33, 13);
+		lblNewLabel_8.setBounds(10, 69, 36, 15);
 		lblNewLabel_8.setText("M\u00E1rka:");
 		
 		Label lblNewLabel_12 = new Label(comp_vagyontargyadatai, SWT.NONE);
-		lblNewLabel_12.setBounds(10, 149, 69, 13);
+		lblNewLabel_12.setBounds(10, 149, 72, 15);
 		lblNewLabel_12.setToolTipText("a term\u00E9k \u00C1FA-val n\u00F6velt \u00E1ra");
 		lblNewLabel_12.setText("Fogyaszt\u00F3i \u00E1r:");
 		
 		Label lblNewLabel_11 = new Label(comp_vagyontargyadatai, SWT.NONE);
-		lblNewLabel_11.setBounds(10, 129, 103, 13);
+		lblNewLabel_11.setBounds(10, 129, 113, 15);
 		lblNewLabel_11.setToolTipText("a term\u00E9k beszerz\u00E9si \u00C1FA-val n\u00F6velt \u00E1ra");
 		lblNewLabel_11.setText("Nagykereskedelmi \u00E1r:");
 		
 		Label lblNewLabel_10 = new Label(comp_vagyontargyadatai, SWT.NONE);
-		lblNewLabel_10.setBounds(10, 109, 119, 13);
+		lblNewLabel_10.setBounds(10, 109, 127, 15);
 		lblNewLabel_10.setText("Gy\u00E1rt\u00F3i garancia hossza:");
 		
 		Label lblNewLabel_9 = new Label(comp_vagyontargyadatai, SWT.NONE);
-		lblNewLabel_9.setBounds(10, 89, 29, 13);
+		lblNewLabel_9.setBounds(10, 89, 32, 15);
 		lblNewLabel_9.setText("T\u00EDpus:");
 		
 		Label lblNewLabel_5 = new Label(comp_vagyontargyadatai, SWT.NONE);
-		lblNewLabel_5.setBounds(0, 10, 95, 13);
+		lblNewLabel_5.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		lblNewLabel_5.setBounds(10, 8, 106, 15);
 		lblNewLabel_5.setText("Vagyont\u00E1rgy adatai");
 		
 		vagy_cikk_kod = new Text(comp_vagyontargyadatai, SWT.BORDER);
-		vagy_cikk_kod.setBounds(132, 23, 131, 19);
+		vagy_cikk_kod.setBounds(144, 25, 131, 19);
 		
 		vagy_kategoria = new Text(comp_vagyontargyadatai, SWT.BORDER);
-		vagy_kategoria.setBounds(132, 43, 131, 19);
+		vagy_kategoria.setBounds(144, 45, 131, 19);
 		
 		vagy_marka = new Text(comp_vagyontargyadatai, SWT.BORDER);
-		vagy_marka.setBounds(132, 63, 131, 19);
+		vagy_marka.setBounds(144, 65, 131, 19);
 		
 		vagy_tipus = new Text(comp_vagyontargyadatai, SWT.BORDER);
-		vagy_tipus.setBounds(132, 83, 131, 19);
+		vagy_tipus.setBounds(144, 85, 131, 19);
 		
 		vagy_gyarto_gar_hossz = new Text(comp_vagyontargyadatai, SWT.BORDER);
-		vagy_gyarto_gar_hossz.setBounds(132, 103, 131, 19);
+		vagy_gyarto_gar_hossz.setBounds(144, 105, 131, 19);
 		
 		vagy_nagyk_ar = new Text(comp_vagyontargyadatai, SWT.BORDER);
-		vagy_nagyk_ar.setBounds(132, 123, 131, 19);
+		vagy_nagyk_ar.setBounds(144, 125, 131, 19);
 		
 		vagy_fogy_ar = new Text(comp_vagyontargyadatai, SWT.BORDER);
-		vagy_fogy_ar.setBounds(132, 143, 131, 19);
+		vagy_fogy_ar.setBounds(144, 145, 131, 19);
 		
 		Label label = new Label(comp_vagyontargyadatai, SWT.NONE);
 		label.setText("Ft");
-		label.setBounds(269, 126, 10, 13);
+		label.setBounds(281, 128, 10, 13);
 		
 		Label label_1 = new Label(comp_vagyontargyadatai, SWT.NONE);
 		label_1.setText("Ft");
-		label_1.setBounds(269, 146, 10, 13);
+		label_1.setBounds(281, 148, 10, 13);
 		
 		Label label_2 = new Label(comp_vagyontargyadatai, SWT.NONE);
 		label_2.setText("(1-5)");
-		label_2.setBounds(269, 106, 24, 13);
+		label_2.setBounds(281, 108, 24, 13);
 		
 		Composite comp_biztositas = new Composite(shlTermkgarancia, SWT.NONE);
-		comp_biztositas.setBounds(311, 225, 273, 63);
+		comp_biztositas.setBounds(295, 225, 312, 63);
 		
 		Label lblNewLabel_13 = new Label(comp_biztositas, SWT.NONE);
-		lblNewLabel_13.setBounds(0, 0, 78, 13);
+		lblNewLabel_13.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		lblNewLabel_13.setBounds(0, 0, 89, 15);
 		lblNewLabel_13.setText("Biztos\u00EDt\u00E1s adatai");
 		
 		Label lblNewLabel_14 = new Label(comp_biztositas, SWT.NONE);
-		lblNewLabel_14.setBounds(10, 19, 67, 13);
+		lblNewLabel_14.setBounds(10, 19, 71, 15);
 		lblNewLabel_14.setToolTipText("a gy\u00E1rt\u00F3i garancia hossza \u00E9s a kiterjeszt\u00E9s hossza");
 		lblNewLabel_14.setText("Teljes tartam:");
 		
 		Label lblNewLabel_15 = new Label(comp_biztositas, SWT.NONE);
-		lblNewLabel_15.setBounds(10, 40, 65, 13);
+		lblNewLabel_15.setBounds(10, 40, 71, 15);
 		lblNewLabel_15.setToolTipText("a kisz\u00E1molt d\u00EDj");
 		lblNewLabel_15.setText("Biztos\u00EDt\u00E1si d\u00EDj:");
 		
@@ -313,7 +315,7 @@ public class biztositas {
 		lblNewLabel_20.setText("Ft");
 		
 		Label lblDuplaClick = new Label(shlTermkgarancia, SWT.NONE);
-		lblDuplaClick.setBounds(358, 299, 51, 13);
+		lblDuplaClick.setBounds(358, 299, 60, 15);
 		lblDuplaClick.setText("Dupla Click");
 		
 		final Label lblElesTeszt = new Label(shlTermkgarancia, SWT.NONE);
@@ -399,11 +401,11 @@ public class biztositas {
 		label_3.setBounds(0, 33, 617, 1);
 		
 		Label lblNewLabel_21 = new Label(shlTermkgarancia, SWT.NONE);
-		lblNewLabel_21.setBounds(10, 40, 51, 13);
+		lblNewLabel_21.setBounds(10, 40, 56, 15);
 		lblNewLabel_21.setText("Azonosító:");
 		
 		textAzonosito = new Text(shlTermkgarancia, SWT.BORDER | SWT.READ_ONLY);
-		textAzonosito.setBounds(63, 37, 76, 19);
+		textAzonosito.setBounds(72, 38, 76, 19);
 		textAzonosito.setText(azonositos);
 		
 		if (mntmeles.getSelection()) {

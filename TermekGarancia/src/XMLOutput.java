@@ -44,7 +44,7 @@ public class XMLOutput extends Shell {
 		btnBezr.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDoubleClick(MouseEvent e) {
-				display.close();
+				display.getActiveShell().dispose();
 			}
 		});
 		btnBezr.setBounds(262, 404, 68, 23);
@@ -56,13 +56,14 @@ public class XMLOutput extends Shell {
 		scrolledComposite.setExpandVertical(true);
 		
 		StyledText styledText_xmloutout = new StyledText(scrolledComposite, SWT.BORDER | SWT.READ_ONLY);
+		styledText_xmloutout.setAlignment(SWT.CENTER);
 		styledText_xmloutout.setText(xmlout);
 		scrolledComposite.setContent(styledText_xmloutout);
 		scrolledComposite.setMinSize(styledText_xmloutout.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 		
 		Label lblNewLabel = new Label(this, SWT.NONE);
 		lblNewLabel.setFont(SWTResourceManager.getFont("Tahoma", 12, SWT.BOLD));
-		lblNewLabel.setBounds(249, 10, 95, 19);
+		lblNewLabel.setBounds(248, 10, 95, 19);
 		lblNewLabel.setText("XML Output");
 		createContents();
 	}
@@ -72,7 +73,7 @@ public class XMLOutput extends Shell {
 	 */
 	protected void createContents() {
 		setText("XML View");
-		setSize(601, 471);
+		setSize(608, 471);
 
 	}
 

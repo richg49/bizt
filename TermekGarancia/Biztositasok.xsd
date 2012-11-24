@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:ptws="http://promarkvf.hu/ProductWS"
+			xmlns:pt="http://promarkvf.hu/ProductTypes"
+	targetNamespace="http://promarkvf.hu/Biztositasok" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xs:import schemaLocation="ProductWS.xsd" namespace="http://promarkvf.hu/ProductWS" />
+	<xs:import schemaLocation="ProductTypes.xsd" namespace="http://promarkvf.hu/ProductTypes" />
+	<xs:element name="Biztosítások">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ID" type="xs:int" />
+				<xs:element name="Biztosítás">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element name="Termékgarancia">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Felhasználó" type="ptws:adat_Felhasználó" />
+										<xs:element name="Szerződés">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Törlendő" type="pt:típus_IgenNem" />
+													<xs:element name="Számla_sorszáma" type="pt:típus_Kötelező" />
+													<xs:element name="Vásárlás_dátuma" type="xs:date" />
+													<xs:element name="Vásárló">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Név" type="pt:típus_Kötelező" />
+																<xs:element name="Lakcím" type="ptws:blokk_Cím" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Vagyontárgy" type="ptws:Vagyontárgy" />
+													<xs:element name="Biztosítás" type="ptws:Biztosítás" />
+													<xs:element name="Áruház" type="ptws:Áruház" />
+													<xs:element name="Eredmény" type="ptws:adat_Eredmény" />
+													<xs:element name="Hiba" type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
