@@ -2,14 +2,12 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 

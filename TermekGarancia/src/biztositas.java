@@ -37,7 +37,6 @@ import hu.groupama.portal.product.biztositas.AdatSzerződés.Vagyontárgy;
 import hu.groupama.portal.product.biztositas.AdatSzerződés.Vásárló;
 import hu.groupama.portal.product.biztositas.Biztosítás;
 import hu.groupama.portal.product.biztositas.BlokkCím;
-import hu.groupama.portal.product.log.AdatEredmény;
 import hu.groupama.portal.product.log.Biztosítások;
 import hu.groupama.portal.product.service.ProductWS;
 import hu.groupama.portal.product.service.ProductWSService;
@@ -54,7 +53,6 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import com.sun.xml.internal.ws.client.ClientTransportException;
-import com.sun.xml.internal.ws.util.Pool.Unmarshaller;
 
 public class biztositas {
 	protected Shell shlTermkgarancia;
