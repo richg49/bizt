@@ -35,10 +35,10 @@ import hu.groupama.portal.product.biztositas.AdatFelhasználó;
 import hu.groupama.portal.product.biztositas.AdatSzerződés;
 import hu.groupama.portal.product.biztositas.AdatSzerződés.Vagyontárgy;
 import hu.groupama.portal.product.biztositas.AdatSzerződés.Vásárló;
-import hu.groupama.portal.product.biztositas.AdatSzerződés.Áruház;
 import hu.groupama.portal.product.biztositas.Biztosítás;
 import hu.groupama.portal.product.biztositas.BlokkCím;
-import hu.groupama.portal.product.biztositas.ObjectFactory;
+import hu.groupama.portal.product.log.AdatEredmény;
+import hu.groupama.portal.product.log.Biztosítások;
 import hu.groupama.portal.product.service.ProductWS;
 import hu.groupama.portal.product.service.ProductWSService;
 import hu.groupama.portal.product.setup.AdatFelhasználós;
@@ -54,6 +54,7 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import com.sun.xml.internal.ws.client.ClientTransportException;
+import com.sun.xml.internal.ws.util.Pool.Unmarshaller;
 
 public class biztositas {
 	protected Shell shlTermkgarancia;
@@ -87,6 +88,7 @@ public class biztositas {
 
 	public static void main(String[] args) {
 		try {
+			loadXML();
 			biztositas window = new biztositas();
 			window.open();
 		} catch (Exception e) {
@@ -396,6 +398,16 @@ public class biztositas {
 		});
 		mntmKapcsolatTesztels.setText("Kapcsolat tesztelés");
 		
+		MenuItem mntmBiztostsok = new MenuItem(menu, SWT.NONE);
+		mntmBiztostsok.setEnabled(false);
+		mntmBiztostsok.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				Oldview.OldviewM();
+			}
+		});
+		mntmBiztostsok.setText("Biztosítások");
+		
 		label_3 = new Label(shlTermkgarancia, SWT.SEPARATOR | SWT.HORIZONTAL);
 		label_3.setAlignment(SWT.CENTER);
 		label_3.setBounds(0, 33, 617, 1);
@@ -405,7 +417,7 @@ public class biztositas {
 		lblNewLabel_21.setText("Azonosító:");
 		
 		textAzonosito = new Text(shlTermkgarancia, SWT.BORDER | SWT.READ_ONLY);
-		textAzonosito.setBounds(72, 38, 76, 19);
+		textAzonosito.setBounds(72, 38, 102, 19);
 		textAzonosito.setText(azonositos);
 		
 		if (mntmeles.getSelection()) {
@@ -417,20 +429,37 @@ public class biztositas {
 	
 	protected void create_xml() {
 		JAXBContext jaxbContext;
+
+		JAXBContext logjaxbContext;
 		
 		Biztosítás bizt = new Biztosítás();
-
+//log		
+		Biztosítások log = new Biztosítások();
+		Biztosítások.Biztosítás logbizt = new Biztosítások.Biztosítás();
+		
 		AdatFelhasználó adf = new AdatFelhasználó();
 		adf.setAzonosító(azonositos);
 		adf.setPiramisTörzsszám(piramistorzsszams);
 		adf.setTesztBejelentkezés(tesztbejelentkezess);
+// log
+		hu.groupama.portal.product.log.AdatFelhasználó logadf = new hu.groupama.portal.product.log.AdatFelhasználó();
+		logadf.setAzonosító(azonositos);
+		logadf.setPiramisTörzsszám(piramistorzsszams);
+		logadf.setTesztBejelentkezés(tesztbejelentkezess);
 
 		AdatSzerződés adsz = new AdatSzerződés();
 		adsz.setTörlendő("0");
 		adsz.setSzámlaSorszáma(szamlaszam.getText());
+//log
+		hu.groupama.portal.product.log.Biztosítások.Biztosítás.Termékgarancia.Szerződés logadsz = new hu.groupama.portal.product.log.Biztosítások.Biztosítás.Termékgarancia.Szerződés();
+		logadsz.setTörlendő("0");
+		logadsz.setSzámlaSorszáma(szamlaszam.getText());
 		
 		Biztosítás.Termékgarancia trg = new Biztosítás.Termékgarancia();
 		trg.setFelhasználó(adf);
+//log
+		hu.groupama.portal.product.log.Biztosítások.Biztosítás.Termékgarancia logtrg = new hu.groupama.portal.product.log.Biztosítások.Biztosítás.Termékgarancia();
+		logtrg.setFelhasználó(logadf);
 		
 		DatatypeFactory df = null;
 		try {
@@ -455,15 +484,27 @@ public class biztositas {
 		String sdate = String.valueOf(ve)+"-"+vhs+"-"+vns;
 		XMLGregorianCalendar xmlDate = df.newXMLGregorianCalendar(sdate);
 		adsz.setVásárlásDátuma( xmlDate );
+		logadsz.setVásárlásDátuma( xmlDate );
 		
 		Vásárló vs = new Vásárló();
 		vs.setNév(vnev.getText());
+//log
+		hu.groupama.portal.product.log.Biztosítások.Biztosítás.Termékgarancia.Szerződés.Vásárló logvs = new hu.groupama.portal.product.log.Biztosítások.Biztosítás.Termékgarancia.Szerződés.Vásárló();
+		logvs.setNév(vnev.getText());
+		
 		BlokkCím bc = new BlokkCím();
 		bc.setIrányítószám(virszam.getText());
 		bc.setTelepülés(vvaros.getText());
 		bc.setUtcaHázszámEmeletAjtó(vlakcim.getText());
 		vs.setLakcím(bc);
 		adsz.setVásárló(vs);
+//log
+		hu.groupama.portal.product.log.BlokkCím logbc = new hu.groupama.portal.product.log.BlokkCím();
+		logbc.setIrányítószám(virszam.getText());
+		logbc.setTelepülés(vvaros.getText());
+		logbc.setUtcaHázszámEmeletAjtó(vlakcim.getText());
+		logvs.setLakcím(logbc);
+		logadsz.setVásárló(logvs);
 		
 		int jelzo_h = 0;
 		String jelzo = "OK";
@@ -473,26 +514,41 @@ public class biztositas {
 			vgy.setKategória(vagy_kategoria.getText());
 			vgy.setMárka(vagy_marka.getText());
 			vgy.setTípus(vagy_tipus.getText());
+//log
+			hu.groupama.portal.product.log.Vagyontárgy logvgy = new hu.groupama.portal.product.log.Vagyontárgy();
+			logvgy.setCikkKód(vagy_cikk_kod.getText());
+			logvgy.setKategória(vagy_kategoria.getText());
+			logvgy.setMárka(vagy_marka.getText());
+			logvgy.setTípus(vagy_tipus.getText());
+			
 			jelzo ="Garancia Hossza csak szám lehet 1-5 között!";
 			vgy.setGyártóiGaranciaHossza(Integer.parseInt(vagy_gyarto_gar_hossz.getText()));
+			logvgy.setGyártóiGaranciaHossza(Integer.parseInt(vagy_gyarto_gar_hossz.getText()));
 			if (vgy.getGyártóiGaranciaHossza() < 1 || vgy.getGyártóiGaranciaHossza() > 5) {
 				throw new NumberFormatException();
 			}
 			jelzo = "A nagykereskedelmi ár csak szám lehet!";
 			vgy.setNagykereskedelmiÁr(Integer.parseInt(vagy_nagyk_ar.getText()));
+			logvgy.setNagykereskedelmiÁr(Integer.parseInt(vagy_nagyk_ar.getText()));
 			jelzo = "A fogyasztói ár csak szám lehet!";
 			vgy.setFogyasztóiÁr(Integer.parseInt(vagy_fogy_ar.getText()));
+			logvgy.setFogyasztóiÁr(Integer.parseInt(vagy_fogy_ar.getText()));
 			adsz.setVagyontárgy(vgy);
+			logadsz.setVagyontárgy(logvgy);
 			
 			AdatSzerződés.Biztosítás bz = new AdatSzerződés.Biztosítás();
+			hu.groupama.portal.product.log.Biztosítás logbz = new hu.groupama.portal.product.log.Biztosítás();
 			jelzo = "A biztosítási díj csak szám lehet!";
 			bz.setBiztosításiDíj(Integer.parseInt(bdij.getText()));
+			logbz.setBiztosításiDíj(Integer.parseInt(bdij.getText()));
 			jelzo = "A Teljes tartam csak szám lehet 1-5 között!";
 			bz.setTeljesTartam(Integer.parseInt(bteljes.getText()));
+			logbz.setTeljesTartam(Integer.parseInt(bteljes.getText()));
 			if (bz.getTeljesTartam() < 1 || bz.getTeljesTartam() > 5) {
 				throw new NumberFormatException();
 			}
 			adsz.setBiztosítás(bz);
+			logadsz.setBiztosítás(logbz);
 		} catch (NumberFormatException e1) {
 			Shell shell = new Shell();
 			MessageBox messageDialog = new MessageBox(shell, SWT.ICON_ERROR | SWT.OK);
@@ -502,30 +558,53 @@ public class biztositas {
 			    JOptionPane.showMessageDialog(null, jelzo);
 		}
 		
-		Áruház arh = new Áruház();
+		hu.groupama.portal.product.biztositas.AdatSzerződés.Áruház arh = new hu.groupama.portal.product.biztositas.AdatSzerződés.Áruház();
 		arh.setKód(aruhaz_kod.getText());
 		arh.setNév(aruhaz_nev.getText());
 		adsz.setÁruház(arh);
+//log
+		hu.groupama.portal.product.log.Áruház logarh = new hu.groupama.portal.product.log.Áruház();
+		logarh.setKód(aruhaz_kod.getText());
+		logarh.setNév(aruhaz_nev.getText());
+		logadsz.setÁruház(logarh);
 		
 		trg.setSzerződés(adsz);
 		bizt.setTermékgarancia(trg);
-		
-//form to xml
+
 		StringWriter sw = new StringWriter();
+//log
+		logtrg.setSzerződés(logadsz);
+		logbizt.setTermékgarancia(logtrg);
+
+//form to xml
 		try {
-			jaxbContext = JAXBContext.newInstance(ObjectFactory.class);
+			jaxbContext = JAXBContext.newInstance(hu.groupama.portal.product.biztositas.ObjectFactory.class);
 			Marshaller m = jaxbContext.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			m.marshal(bizt, new FileOutputStream("p.xml"));
 			m.marshal(bizt, sw);
+			
+			if (sw.toString() != null && jelzo_h == 0) {
+				hu.groupama.portal.product.log.AdatEredmény adateredmeny = new hu.groupama.portal.product.log.AdatEredmény();
+				adateredmeny.setAjánlatszám(storeDataConection(sw.toString()));
+				logadsz.setEredmény(adateredmeny);
+				logtrg.setSzerződés(logadsz);
+				logbizt.setTermékgarancia(logtrg);
+			}
+//log
+			log.setBiztosítás(logbizt);
+			log.setID(9999);
+			logjaxbContext = JAXBContext.newInstance(hu.groupama.portal.product.log.ObjectFactory.class);
+			Marshaller logm = logjaxbContext.createMarshaller();
+			logm.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			logm.marshal(log, new FileOutputStream("log.xml",true));
+			logm.marshal(bizt, sw);
+			XMLOutput.XMLOutputM(sw.toString());
+			
 		} catch (JAXBException | FileNotFoundException e2) {
 			e2.printStackTrace();
 		}
 
-		if (sw.toString() != null && jelzo_h == 0) {
-			XMLOutput.XMLOutputM(sw.toString());
-			storeDataConection(sw.toString());
-		}
 	}
 	protected void tesztConection() {
         try {
@@ -581,56 +660,84 @@ public class biztositas {
 		         }		
 	}
 // Store Data
-	protected void storeDataConection(String dataXML) {
-        try {
-            // Create a trust manager that does not validate certificate chains     
-        	final TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager()  {         
-    			@Override         
-    			public void checkClientTrusted( final X509Certificate[] chain, final String authType ) {
-    			}         
-    			@Override         
-    			public void checkServerTrusted( final X509Certificate[] chain, final String authType ) {
-    			}         
-    			@Override         
-    			public X509Certificate[] getAcceptedIssuers() {
-    				return null;         
-    			}     
-        	}
-        	};          
-        	SSLContext sc = SSLContext.getInstance("SSL");
-            sc.init(null, trustAllCerts, new java.security.SecureRandom());
-            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+	protected String storeDataConection(String dataXML) {
+        String valasz = "Teszt";
+		try {
+			// Create a trust manager that does not validate certificate chains
+			final TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+				@Override
+				public void checkClientTrusted(final X509Certificate[] chain,
+						final String authType) {
+				}
 
-            // Create all-trusting host name verifier
-            HostnameVerifier allHostsValid = new HostnameVerifier() {
-                public boolean verify(String hostname, SSLSession session) {
-                  return true;
-                }
-            };
-            // Install the all-trusting host verifier
-            HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
-        
-//	        URL u = new URL(ws);
-	        
-//	        QName qn = new QName(tns, serviceName);
-			
-//	        ProductWSService ps = new ProductWSService(u,qn);
-	        ProductWSService ps = new ProductWSService();
-	        ProductWS p = ps.getProductWS();
+				@Override
+				public void checkServerTrusted(final X509Certificate[] chain,
+						final String authType) {
+				}
 
-	        String valasz;
+				@Override
+				public X509Certificate[] getAcceptedIssuers() {
+					return null;
+				}
+			} };
+			SSLContext sc = SSLContext.getInstance("SSL");
+			sc.init(null, trustAllCerts, new java.security.SecureRandom());
+			HttpsURLConnection
+					.setDefaultSSLSocketFactory(sc.getSocketFactory());
+
+			// Create all-trusting host name verifier
+			HostnameVerifier allHostsValid = new HostnameVerifier() {
+				public boolean verify(String hostname, SSLSession session) {
+					return true;
+				}
+			};
+			// Install the all-trusting host verifier
+			HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
+
+			// URL u = new URL(ws);
+
+			// QName qn = new QName(tns, serviceName);
+
+			// ProductWSService ps = new ProductWSService(u,qn);
+			ProductWSService ps = new ProductWSService();
+			ProductWS p = ps.getProductWS();
+
 			try {
 				valasz = p.storeData(dataXML);
-		        JOptionPane.showMessageDialog(null, valasz);
+				JOptionPane.showMessageDialog(null, valasz);
 			} catch (ClientTransportException e) {
 				e.printStackTrace();
-		        JOptionPane.showMessageDialog(null, ((ClientTransportException) e).getMessage());
+				JOptionPane.showMessageDialog(null,
+						((ClientTransportException) e).getMessage());
 			}
 
-
-	//		String valasz = 
-	         } catch (Exception e) {
-		            e.printStackTrace(); 
-		         }		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return valasz;
+	}
+// load logxml	
+	protected static int loadXML() {
+		try {
+//			JAXBContext jaxbSetup;
+//			jaxbSetup = JAXBContext.newInstance(hu.groupama.portal.product.setup.ObjectFactory.class);
+//			javax.xml.bind.Unmarshaller unmarshallerSetup = jaxbSetup.createUnmarshaller();
+//			@SuppressWarnings("unchecked")
+//			JAXBElement<AdatFelhasználós> felhasznalos = (JAXBElement<AdatFelhasználós>) unmarshallerSetup.unmarshal(new File("tgsetup.xml"));
+//			azonositos =  felhasznalos.getValue().getAzonosítós();
+			
+			JAXBContext jaxbContextLog = JAXBContext.newInstance(hu.groupama.portal.product.log.ObjectFactory.class);
+			javax.xml.bind.Unmarshaller unmarshallerLog = jaxbContextLog.createUnmarshaller();
+			Object logs = unmarshallerLog.unmarshal(new File("log.xml"));
+//			JAXBElement<Biztosítások> logs = (JAXBElement<Biztosítások>) unmarshallerLog.unmarshal(new File("log.xml"));
+			
+			int logid = ((Biztosítások)logs).getID();
+			return (logid ++);
+			
+			
+		} catch (JAXBException  e) {
+			// TODO: handle exception
+		}
+		return 0;
 	}
 }

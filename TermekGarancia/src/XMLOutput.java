@@ -12,10 +12,6 @@ import org.eclipse.wb.swt.SWTResourceManager;
 
 public class XMLOutput extends Shell {
 
-	/**
-	 * Launch the application.
-	 * @param xmloo
-	 */
 	public static void XMLOutputM(String xmloo) {
 		try {
 			Display display = Display.getDefault();
@@ -32,11 +28,6 @@ public class XMLOutput extends Shell {
 		}
 	}
 
-	/**
-	 * Create the shell.
-	 * @param display
-	 * @param xmlout 
-	 */
 	public XMLOutput(final Display display, String xmlout) {
 		super(display, SWT.SHELL_TRIM);
 

@@ -2,14 +2,14 @@
 <Biztosítás>
     <Termékgarancia>
         <Felhasználó>
-            <Azonosító>1200010846</Azonosító>
-            <Piramis_törzsszám>0</Piramis_törzsszám>
+            <Azonosító>HPHSPECIAL</Azonosító>
+            <Piramis_törzsszám>719704</Piramis_törzsszám>
             <Teszt_bejelentkezés>1</Teszt_bejelentkezés>
         </Felhasználó>
         <Szerződés>
             <Törlendő>0</Törlendő>
             <Számla_sorszáma>1</Számla_sorszáma>
-            <Vásárlás_dátuma>2012-11-23</Vásárlás_dátuma>
+            <Vásárlás_dátuma>2012-11-28</Vásárlás_dátuma>
             <Vásárló>
                 <Név>1</Név>
                 <Lakcím>
@@ -28,7 +28,7 @@
                 <Fogyasztói_ár>1</Fogyasztói_ár>
             </Vagyontárgy>
             <Biztosítás>
-                <Teljes_tartam>1</Teljes_tartam>
+                <Teljes_tartam>2</Teljes_tartam>
                 <Biztosítási_díj>1</Biztosítási_díj>
             </Biztosítás>
             <Áruház>
