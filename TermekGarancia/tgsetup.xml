@@ -2,5 +2,5 @@
 <p:Felhasználós xmlns:p="http://www.promarkvf.hu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.promarkvf.hu tgsetup.xsd ">
   <Azonosítós>HPHSPECIAL</Azonosítós>
   <Piramis_törzsszáms>719704</Piramis_törzsszáms>
-  <Teszt_bejelentkezéss>1</Teszt_bejelentkezéss>
+  <Teszt_bejelentkezéss>0</Teszt_bejelentkezéss>
 </p:Felhasználós>
