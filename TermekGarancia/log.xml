@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Biztosítások xmlns="http://promarkvf.hu/ProductWS" xmlns:ns2="http://promarkvf.hu/Biztositasok">
+    <ns2:ID>9999</ns2:ID>
+    <ns2:Biztosítás>
+        <ns2:Termékgarancia>
+            <ns2:Felhasználó>
+                <Azonosító>1200010846</Azonosító>
+                <Piramis_törzsszám>0</Piramis_törzsszám>
+                <Teszt_bejelentkezés>1</Teszt_bejelentkezés>
+            </ns2:Felhasználó>
+            <ns2:Szerződés>
+                <ns2:Törlendő>0</ns2:Törlendő>
+                <ns2:Számla_sorszáma>1</ns2:Számla_sorszáma>
+                <ns2:Vásárló>
+                    <ns2:Név>1</ns2:Név>
+                    <ns2:Lakcím>
+                        <Irányítószám>1</Irányítószám>
+                        <Település>1</Település>
+                        <Utca_házszám_emelet_ajtó>1</Utca_házszám_emelet_ajtó>
+                    </ns2:Lakcím>
+                </ns2:Vásárló>
+                <ns2:Vagyontárgy>
+                    <Cikk_kód>1</Cikk_kód>
+                    <Kategória>1</Kategória>
+                    <Márka>1</Márka>
+                    <Típus>1</Típus>
+                    <Gyártói_garancia_hossza>1</Gyártói_garancia_hossza>
+                    <Nagykereskedelmi_ár>1</Nagykereskedelmi_ár>
+                    <Fogyasztói_ár>1</Fogyasztói_ár>
+                </ns2:Vagyontárgy>
+                <ns2:Biztosítás>
+                    <Teljes_tartam>1</Teljes_tartam>
+                    <Biztosítási_díj>1</Biztosítási_díj>
+                </ns2:Biztosítás>
+                <ns2:Áruház>
+                    <Kód>1</Kód>
+                    <Név>1</Név>
+                </ns2:Áruház>
+            </ns2:Szerződés>
+        </ns2:Termékgarancia>
+    </ns2:Biztosítás>
+</ns2:Biztosítások>
+<ns2:Biztosítások xmlns="http://promarkvf.hu/ProductWS" xmlns:ns2="http://promarkvf.hu/Biztositasok">
+    <ns2:ID>8888</ns2:ID>
+    <ns2:Biztosítás>
+        <ns2:Termékgarancia>
+            <ns2:Felhasználó>
+                <Azonosító>1200010846</Azonosító>
+                <Piramis_törzsszám>0</Piramis_törzsszám>
+                <Teszt_bejelentkezés>1</Teszt_bejelentkezés>
+            </ns2:Felhasználó>
+            <ns2:Szerződés>
+                <ns2:Törlendő>0</ns2:Törlendő>
+                <ns2:Számla_sorszáma>1</ns2:Számla_sorszáma>
+                <ns2:Vásárló>
+                    <ns2:Név>1</ns2:Név>
+                    <ns2:Lakcím>
+                        <Irányítószám>1</Irányítószám>
+                        <Település>1</Település>
+                        <Utca_házszám_emelet_ajtó>1</Utca_házszám_emelet_ajtó>
+                    </ns2:Lakcím>
+                </ns2:Vásárló>
+                <ns2:Vagyontárgy>
+                    <Cikk_kód>1</Cikk_kód>
+                    <Kategória>1</Kategória>
+                    <Márka>1</Márka>
+                    <Típus>1</Típus>
+                    <Gyártói_garancia_hossza>1</Gyártói_garancia_hossza>
+                    <Nagykereskedelmi_ár>1</Nagykereskedelmi_ár>
+                    <Fogyasztói_ár>1</Fogyasztói_ár>
+                </ns2:Vagyontárgy>
+                <ns2:Biztosítás>
+                    <Teljes_tartam>1</Teljes_tartam>
+                    <Biztosítási_díj>1</Biztosítási_díj>
+                </ns2:Biztosítás>
+                <ns2:Áruház>
+                    <Kód>1</Kód>
+                    <Név>1</Név>
+                </ns2:Áruház>
+            </ns2:Szerződés>
+        </ns2:Termékgarancia>
+    </ns2:Biztosítás>
+</ns2:Biztosítások>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Biztosítások xmlns="http://promarkvf.hu/Biztositasok" xmlns:ns2="http://promarkvf.hu/ProductWS">
+    <ID>9999</ID>
+    <Biztosítás>
+        <Termékgarancia>
+            <Felhasználó>
+                <ns2:Azonosító>HPHSPECIAL</ns2:Azonosító>
+                <ns2:Piramis_törzsszám>719704</ns2:Piramis_törzsszám>
+                <ns2:Teszt_bejelentkezés>1</ns2:Teszt_bejelentkezés>
+            </Felhasználó>
+            <Szerződés>
+                <Törlendő>0</Törlendő>
+                <Számla_sorszáma>1</Számla_sorszáma>
+                <Vásárlás_dátuma>2012-11-28</Vásárlás_dátuma>
+                <Vásárló>
+                    <Név>1</Név>
+                    <Lakcím>
+                        <ns2:Irányítószám>1</ns2:Irányítószám>
+                        <ns2:Település>1</ns2:Település>
+                        <ns2:Utca_házszám_emelet_ajtó>1</ns2:Utca_házszám_emelet_ajtó>
+                    </Lakcím>
+                </Vásárló>
+                <Vagyontárgy>
+                    <ns2:Cikk_kód>1</ns2:Cikk_kód>
+                    <ns2:Kategória>1</ns2:Kategória>
+                    <ns2:Márka>1</ns2:Márka>
+                    <ns2:Típus>1</ns2:Típus>
+                    <ns2:Gyártói_garancia_hossza>1</ns2:Gyártói_garancia_hossza>
+                    <ns2:Nagykereskedelmi_ár>1</ns2:Nagykereskedelmi_ár>
+                    <ns2:Fogyasztói_ár>1</ns2:Fogyasztói_ár>
+                </Vagyontárgy>
+                <Biztosítás>
+                    <ns2:Teljes_tartam>1</ns2:Teljes_tartam>
+                    <ns2:Biztosítási_díj>1</ns2:Biztosítási_díj>
+                </Biztosítás>
+                <Áruház>
+                    <ns2:Kód>1</ns2:Kód>
+                    <ns2:Név>1</ns2:Név>
+                </Áruház>
+                <Eredmény>
+                    <ns2:Ajánlatszám>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xD;
+&lt;Biztosítás&gt;&lt;Hiba&gt;A megadott Gyártói garancia hossza és a Biztosítás tartama nem található!&lt;/Hiba&gt;&lt;/Biztosítás&gt;&#xD;
+</ns2:Ajánlatszám>
+                </Eredmény>
+            </Szerződés>
+        </Termékgarancia>
+    </Biztosítás>
+</Biztosítások>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Biztosítások xmlns="http://promarkvf.hu/Biztositasok" xmlns:ns2="http://promarkvf.hu/ProductWS">
+    <ID>9999</ID>
+    <Biztosítás>
+        <Termékgarancia>
+            <Felhasználó>
+                <ns2:Azonosító>HPHSPECIAL</ns2:Azonosító>
+                <ns2:Piramis_törzsszám>719704</ns2:Piramis_törzsszám>
+                <ns2:Teszt_bejelentkezés>1</ns2:Teszt_bejelentkezés>
+            </Felhasználó>
+            <Szerződés>
+                <Törlendő>0</Törlendő>
+                <Számla_sorszáma>1</Számla_sorszáma>
+                <Vásárlás_dátuma>2012-11-28</Vásárlás_dátuma>
+                <Vásárló>
+                    <Név>1</Név>
+                    <Lakcím>
+                        <ns2:Irányítószám>1</ns2:Irányítószám>
+                        <ns2:Település>1</ns2:Település>
+                        <ns2:Utca_házszám_emelet_ajtó>1</ns2:Utca_házszám_emelet_ajtó>
+                    </Lakcím>
+                </Vásárló>
+                <Vagyontárgy>
+                    <ns2:Cikk_kód>1</ns2:Cikk_kód>
+                    <ns2:Kategória>1</ns2:Kategória>
+                    <ns2:Márka>1</ns2:Márka>
+                    <ns2:Típus>1</ns2:Típus>
+                    <ns2:Gyártói_garancia_hossza>1</ns2:Gyártói_garancia_hossza>
+                    <ns2:Nagykereskedelmi_ár>1</ns2:Nagykereskedelmi_ár>
+                    <ns2:Fogyasztói_ár>1</ns2:Fogyasztói_ár>
+                </Vagyontárgy>
+                <Biztosítás>
+                    <ns2:Teljes_tartam>2</ns2:Teljes_tartam>
+                    <ns2:Biztosítási_díj>1</ns2:Biztosítási_díj>
+                </Biztosítás>
+                <Áruház>
+                    <ns2:Kód>1</ns2:Kód>
+                    <ns2:Név>1</ns2:Név>
+                </Áruház>
+                <Eredmény>
+                    <ns2:Ajánlatszám>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xD;
+&lt;Biztosítás&gt;&lt;Hiba&gt;A megadott Gyártói garancia hossza és a Biztosítás tartama nem található!&lt;/Hiba&gt;&lt;/Biztosítás&gt;&#xD;
+</ns2:Ajánlatszám>
+                </Eredmény>
+            </Szerződés>
+        </Termékgarancia>
+    </Biztosítás>
+</Biztosítások>

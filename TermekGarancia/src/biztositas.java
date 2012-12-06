@@ -369,9 +369,9 @@ public class biztositas {
 		});
 	
 		if ( Integer.valueOf(tesztbejelentkezess) == 0) {
-//			mntmeles.setSelection(true);
-//			mntmteszt.setSelection(false);
-			tesztbejelentkezess = "1";
+			mntmeles.setSelection(true);
+			mntmteszt.setSelection(false);
+//			tesztbejelentkezess = "1";
 		} else {
 			mntmeles.setSelection(false);
 			mntmteszt.setSelection(true);
